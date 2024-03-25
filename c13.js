@@ -120,17 +120,18 @@ else if (process.argv[2] === "list:complete") {
 }
 
 else if (process.argv[2] === "tag") {
-const tag = process.argv[3]-1
+const index = process.argv[3]-1
 const arr = process.argv.slice(4)
 console.log("daftar pekerjaan")
-console.log(json[tag].title)
 
-arr.forEach(i => {
-    json[tag].tags.push(i)
-})
+    json[index].tags.push(arr)
+
+// arr.forEach(i => {
+//     json[index].tags.push(i)
+// })
 
 write(json)
-console.log(`Tag ${arr} telah di tambahkan ke daftar '${json[tag].title}'`)
+console.log(`Tag ${arr} telah di tambahkan ke daftar '${json[index].title}'`)
 }
 
 else if(process.argv[2].includes(`filter`)) {
