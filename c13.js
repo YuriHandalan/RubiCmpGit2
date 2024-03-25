@@ -136,10 +136,10 @@ console.log(`Tag ${arr} telah di tambahkan ke daftar '${json[index].title}'`)
 
 else if(process.argv[2].includes(`filter`)) {
             console.log('daftar pekerjaan:')
-            result = process.argv[2].split(":");
+            split = process.argv[2].split(":");
 
             json.forEach((i, index) => {
-                if (i.tags.includes(result[1])) {
+                if (i.tags.includes(split[1])) {
                     console.log(`${index + 1}. [${i.complete ? 'X' : ''}] ${i.title}`);
                 }
             })
