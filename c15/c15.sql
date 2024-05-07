@@ -8,7 +8,8 @@ select * from mahasiswa where usia < 20;
 select nama, nilai, nmMatkul from enroll join matakuliah ON enroll.id_Matkul = IDMatkul join mahasiswa using(nim) where nilai <='B';
 
 -- no 4
-select nama, sks from enroll join mahasiswa using(nim) join matakuliah ON enroll.id_Matkul = IDMatkul where sks>'10';
+--select nama, sks from enroll join mahasiswa using(nim) join matakuliah ON enroll.id_Matkul = IDMatkul where sks>'10';
+select nim, nama, SUM(sks) as total_sks from mahasiswa join enroll using(nim) join matakuliah on enroll.id_Matkul = IDMatkul group by nim having total_sks > 10;
 
 -- no 5
 select nim, nama, nmMatkul from mahasiswa join enroll using (nim) join matakuliah on enroll.id_Matkul = IDMatkul where nmMatkul like '%DATA MINING%';
