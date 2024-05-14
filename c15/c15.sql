@@ -11,7 +11,7 @@ select nama, nilai, nmMatkul from enroll join matakuliah ON enroll.id_Matkul = I
 select nama, sks from enroll join mahasiswa using(nim) join matakuliah ON enroll.id_Matkul = IDMatkul where sks>'10';
 
 -- no 5
-select nim, nama, nmMatkul from mahasiswa join enroll using (nim) join matakuliah on enroll.id_Matkul = IDMatkul where nmMatkul = 'DATA MINING';
+select nim, nama, nmMatkul from mahasiswa join enroll using (nim) join matakuliah on enroll.id_Matkul = IDMatkul where nmMatkul like '%DATA MINING%';
 
 -- no 6
 select dosen.nip, dosen.nama, count(distinct enroll.nim)as total_mahasiswa from dosen join enroll using(nip) group by dosen.nip;
