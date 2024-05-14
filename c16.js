@@ -34,7 +34,7 @@ class Rush extends Car{
         super('Rush',5,5,tyre2, year,1)
     }
 }
-// console.log(new Rush)
+
 
 
 class Agya extends Car{
@@ -43,7 +43,7 @@ class Agya extends Car{
     }
 
 }
-// console.log(new Agya)
+
 
 
 class CarFactory {
@@ -54,11 +54,11 @@ class CarFactory {
     produce(year) {
         for (let i = 0; i < Math.floor(Math.random() * 12); i++) {
         this.cars.push(new Agya(year))
-        // console.log(this.cars[i]) 
+     
     }
     for (let i = 0; i < Math.floor(Math.random() * 12); i++) {
         this.cars.push(new Rush(year))
-        // console.log(this.cars[i]) 
+   
         }        
     }
     
@@ -66,30 +66,42 @@ class CarFactory {
     guaranteeSimulation(simulationYear) {
     console.log(`hasil simulasi garansi semua mobil pada tahun ${simulationYear} : `)    
     
-                this.cars.forEach((car, index) => {
-                    console.log(`
-        no.${index + 1}       
-        varian   : ${car.varian}
-        sn       : ${car.sn}
-        door     : ${car.door}
-        seat     : ${car.seat} seater
-        tyre     : ${car.Tyre.brand} ${car.Tyre.size} inch
-        year     : ${car.year}
-        warranty : ${car.warranty} year                
+            this.cars.forEach((car, index) => {
+            console.log(`
+no.${index + 1}       
+varian   : ${car.varian}
+sn       : ${car.sn}
+door     : ${car.door}
+seat     : ${car.seat} seater
+tyre     : ${car.Tyre.brand} ${car.Tyre.size} inch
+year     : ${car.year}
+warranty : ${car.warranty} year                
                     `)
         
-        console.log(`status on ${simulationYear} this guarantee status ${(car.year + car.warranty >= simulationYear) ? 'active' : 'expired'}`)
+console.log(`status on ${simulationYear} this guarantee status ${(car.year + car.warranty >= simulationYear) ? 'active' : 'expired'}`)
                 })
-        
-        
             }
         
 
 
     result(){
-        // console.log(this.cars)
+console.log(`hasil produksi : `)    
+this.cars.forEach((car, index) => {
+
+console.log(`
+no.${index + 1}       
+varian   : ${car.varian}
+sn       : ${car.sn}
+door     : ${car.door}
+seat     : ${car.seat} seater
+tyre     : ${car.Tyre.brand} ${car.Tyre.size} inch
+year     : ${car.year}
+warranty : ${car.warranty} year                
+            `)
+        })
     }
 }
+
 
 const toyota = new CarFactory()
 toyota.produce(2020)
